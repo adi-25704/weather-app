@@ -3,7 +3,7 @@ function fetchWeatherByCity(city: string):any
     const API_KEY = import.meta.env.VITE_OPEN_WEATHER_API_KEY;
     if(!city)
     {
-        return alert("Please enter a City Name.");
+        throw new Error("Please enter a City Name.");
     }
 
     const fetchData = async () => {
@@ -21,7 +21,7 @@ function fetchWeatherByCity(city: string):any
             throw new Error("City Not Found");
         }
     }
-    fetchData();
+    return fetchData();
 }
 
 function fetchWeatherByCoordinates(lat:number,long:number):any
@@ -49,7 +49,7 @@ function fetchWeatherByCoordinates(lat:number,long:number):any
         }
 
     }
-    fetchData();
+    return fetchData();
 }
 
 export {fetchWeatherByCity, fetchWeatherByCoordinates};

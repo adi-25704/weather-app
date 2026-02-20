@@ -14,54 +14,59 @@
   --border-width: 1px;
   --transition-fast:0.2s ease;
 
-  /* --color-bg: #FBF7F2;
-  --color-bg-alt: #F1E9E0;
+  --color-bg: #F4F8FB;             
+  --color-bg-alt: #EAF2F8;        
 
-  --color-text-main: #1F1F1F;
-  --color-text-muted: #5C5C5C;
+  --color-text-main: #1E2A38;     
+  --color-text-muted: #5B6B7C;    
 
-  --color-primary: #FF7F76;
-  --color-primary-hover: #E96A61;
+  --color-primary: #FF8A65;
+  --color-primary-hover: #FF7043;
 
-  --color-border: #E2D8CE;
-  --color-shadow: rgba(0, 0, 0, 0.08);
+  --color-border: #D6E3ED;
+  --color-shadow: rgba(30, 42, 56, 0.08);
 
-  --color-focus-ring: #A86BA3;
-  
-  --color-error-bg: #FBECEC;
-  --color-error-text: #8A1F1F; */
+  --color-focus-ring: #7AA7FF;
+
+  --color-error-bg: #FFEAEA;
+  --color-error-text: #B42323;
+
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.4);
 
 }
 
-/* @media(prefers-color-scheme: dark){
+@media(prefers-color-scheme: dark){
     :root{
 
-    --color-bg: #151212;
-    --color-bg-alt: #1F1A1A;
+     --color-bg: #0F1720;          
+    --color-bg-alt: #172230;
 
-    --color-text-main: #F4EFEA;
-    --color-text-muted: #C9BFB6;
+    --color-text-main: #E8F1F8;
+    --color-text-muted: #9DB2C4;
 
-    --color-primary: #FF9A92;  
-    --color-primary-hover: #FFB3AD;
+    --color-primary: #FF9E80;
+    --color-primary-hover: #FFB199;
 
-    --color-border: #332A2A;
-    --color-shadow: rgba(0, 0, 0, 0.6);
+    --color-border: #223142;
+    --color-shadow: rgba(0, 0, 0, 0.5);
 
-
-    --color-focus-ring: #C48BC0;
+    --color-focus-ring: #5EA0FF;
 
     --color-error-bg: #3A1B1B;
-    --color-error-text: #F2B6B6;
-  }
-} */
+    --color-error-text: #F4A6A6;
 
-/* *,*::before,*::after {
+    --glass-bg: rgba(23, 34, 48, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.08);
+  }
+}
+
+*,*::before,*::after {
 box-sizing: border-box;
 }
 html {
     scroll-behavior: smooth;
-} */
+}
 
 body {
     font-family: var(--font-stack);
@@ -237,15 +242,9 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.weather-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 24px var(--color-shadow);
 }
