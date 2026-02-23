@@ -69,6 +69,17 @@ html {
 }
 
 body {
+    background-image: url("./assets/Sunny_Landscape.jpg"); /* Replace with your image path */
+    background-repeat: no-repeat; /* Prevents the image from tiling */
+    background-position: center top; /* Positions the image */
+    background-attachment: fixed; /*Makes the background image scroll with content */
+    background-size: cover; /* Ensures the image covers the whole screen */
+    
+    /* Add sufficient height to the body to force a scrollbar to appear */
+    min-height: 200vh; 
+    /* margin: 0;
+    padding: 0; */
+
     font-family: var(--font-stack);
     background-color: var(--color-bg);
     color: var(--color-text-main);
@@ -96,6 +107,10 @@ h2 { font-size: 1.75rem; border-bottom: 2px solid var(--color-border); padding-b
 h3 { font-size: 1.35rem; }
 
 @media (max-width: 640px) {
+  body {
+    background-image: url("./assets/Sunny.jpg");
+  }
+
   h1 {
     font-size: 2rem;
     margin-top: var(--space-md);
@@ -243,8 +258,128 @@ button:focus-visible {
 }
 
 .weather-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(3px) saturate(100%);
   border: 1px solid var(--glass-border);
-  box-shadow: 0 8px 24px var(--color-shadow);
+  box-shadow: 0 8px 24px rgba(31, 38, 135, 0.2);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  max-width: var(--container-width);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.temp {
+  font-size: 3rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.location {
+  font-size: 1.5rem;
+  font-weight: 500;
+  opacity: 0.85;
+  margin-top: 0.5rem;
+}
+
+.summary {
+  margin-top: 2rem;
+  font-weight: 500;
+  font-size: 2rem;
+  opacity: 0.9;
+}
+
+.weather-right {
+  text-align: right;
+}
+
+.date {
+  padding-right: 0.5rem;
+  font-size: 2rem;
+  opacity: 0.85;
+}
+
+.time {
+  font-size: 4rem;
+  font-weight: 400;
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .weather-card {
+    padding: var(--space-xl);
+  }
+
+  .temp {
+    font-size: 4.5rem;
+  }
+
+  .location {
+    font-size: 1.8rem;
+  }
+
+  .summary {
+    font-size: 2rem;
+  }
+
+  .date {
+    font-size: 2.2rem;
+  }
+
+  .time {
+    font-size: 4.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .weather-card {
+    padding: var(--space-xl);
+  }
+
+  .temp {
+    font-size: 4.5rem;
+  }
+
+  .location {
+    font-size: 2rem;
+  }
+
+  .summary {
+    font-size: 2.2rem;
+  }
+
+  .date {
+    font-size: 2.2rem;
+  }
+
+  .time {
+    font-size: 5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .weather-card {
+    padding: var(--space-xl);
+  }
+
+  .temp {
+    font-size: 4.5rem;
+  }
+
+  .location {
+    font-size: 2.2rem;
+  }
+
+  .summary {
+    font-size: 2.2rem;
+  }
+
+  .date {
+    font-size: 2.2rem;
+  }
+
+  .time {
+    font-size: 5.5rem;
+  }
 }

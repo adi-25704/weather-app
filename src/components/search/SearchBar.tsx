@@ -6,6 +6,15 @@ interface Props {
 }
 
 function SearchBar({ onSearch }: Props) {
+
+  function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) 
+  {
+    if (e.key === 'Enter') 
+    {
+      onSearch(city);
+    }
+ }
+
   const [city, setCity] = useState("")
   const [loading, setLoading] = useState(false)
   return (
@@ -18,10 +27,13 @@ function SearchBar({ onSearch }: Props) {
                 placeholder='Enter the City...' 
                 value= {city}
                 onChange={(e)=> setCity(e.target.value)}
+                onKeyDown={handleKeyDown}
                 />
                 <button onClick={()=> onSearch(city)} disabled={loading}>
                     {loading ? "Loading..." : "Get Weather"}
                 </button>
+
+                
             </main>
         </section>
     )

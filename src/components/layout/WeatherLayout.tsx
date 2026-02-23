@@ -16,7 +16,6 @@ function Layout() {
             setError("");
             const Data:CurrentWeather = await fetchWeatherDataCity(city);
             setWeatherData(Data)
-            console.log(weatherData)
         }
         catch(err)
         {
@@ -28,7 +27,6 @@ function Layout() {
             setLoading(false)
         }
     }
-
     return (
         <>
         <SearchBar onSearch={fetchData} />
@@ -37,12 +35,20 @@ function Layout() {
         {weatherData && (
             <>
             <h2>{weatherData.name} </h2>
-            <section className="weather-card">
-                <p>Temperature: {Math.round(weatherData.temp - 273.15)} &#x2103;</p>
-                <p>Feels Like: {Math.round(weatherData.tempFeelsLike - 273.15)} &#x2103;</p>
-                {/* <p>Min Temperature: {Math.round(weatherData.tempMin - 273.15)} &#x2103;</p>
-                <p>Max Temperature: {Math.round(weatherData.tempMax - 273.15)} &#x2103;</p> */}
-            </section>
+           
+                <section className="weather-card">
+                    <div className="weather-left">
+                        <h1 className="temp">{weatherData.temp}&#8451;</h1>
+                        <p className="location">&#x1F4CD; {weatherData.name}</p>
+                        <p className="summary">{weatherData.description}</p>
+                    </div>
+
+                    <div className="weather-right">
+                        <p className="date">{weatherData.date}</p>
+                        <h2 className="time">{weatherData.time}</h2>
+                    </div>
+                </section>
+            
             <section className="weather-info" aria-label={`Weather information for ${weatherData.name}`}>
             
             
@@ -52,8 +58,8 @@ function Layout() {
             <p>Visibility: {weatherData.visibility} m</p>
             <p>Wind Speed: {weatherData.windSpeed} m/s</p>
             <p>Wind Degree: {weatherData.windDegree} &#176;</p>
-            <p>Sunrise: {new Date(weatherData.sunrise * 1000).toLocaleTimeString()}</p>
-            <p>Sunset: {new Date(weatherData.sunset * 1000).toLocaleTimeString()}</p>
+            <p>Sunrise: {weatherData.sunrise}</p>
+            <p>Sunset: {weatherData.sunset}</p>
             <p>Main: {weatherData.main}</p>
             <p>Description: {weatherData.description}</p>
             <p>Cloudiness: {weatherData.cloudiness} %</p>

@@ -4,6 +4,9 @@ export interface coordinates {
 }
 
 export interface CurrentWeather{
+    date: string,
+    time: string,
+    name: string,
     temp: number,
     tempFeelsLike: number,
     tempMin: number,
@@ -13,8 +16,8 @@ export interface CurrentWeather{
     visibility: number,
     windSpeed: number,
     windDegree: number,
-    sunrise: number,
-    sunset: number,
+    sunrise: string,
+    sunset: string,
     main: string,
     description: string
     cloudiness: number,
