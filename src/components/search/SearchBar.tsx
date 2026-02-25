@@ -11,12 +11,11 @@ function SearchBar({ onSearch }: Props) {
   {
     if (e.key === 'Enter') 
     {
-      onSearch(city);
+        onSearch(city);
     }
  }
 
   const [city, setCity] = useState("")
-  const [loading, setLoading] = useState(false)
   return (
         <section id ="weatherScreen" className="screen" aria-labelledby="weather-title">
             <main>
@@ -26,8 +25,8 @@ function SearchBar({ onSearch }: Props) {
                 onChange={(e)=> setCity(e.target.value)}
                 onKeyDown={handleKeyDown}
                 />
-                <button onClick={()=> onSearch(city)} disabled={loading}>
-                    {loading ? "Loading..." : "Get Weather"}
+                <button onClick={()=> onSearch(city)}>
+                    {"Get Weather"}
                 </button>
 
                 

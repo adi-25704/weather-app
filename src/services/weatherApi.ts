@@ -1,4 +1,4 @@
-function fetchWeatherByCity(city: string):any
+async function fetchWeatherByCity(city: string):Promise<string>
 {
     const API_KEY = import.meta.env.VITE_OPEN_WEATHER_API_KEY;
     if(!city)
@@ -18,18 +18,18 @@ function fetchWeatherByCity(city: string):any
         }
         catch(err) 
         {
-            throw new Error("City Not Found");
+            throw new Error((err as Error).message);
         }
     }
-    return fetchData();
+    return JSON.stringify(await fetchData());
 }
 
-function fetchWeatherByCoordinates(lat:number,long:number):any
+async function fetchWeatherByCoordinates(lat:number,long:number):Promise<string>
 {
     const API_KEY = import.meta.env.VITE_OPEN_WEATHER_API_KEY;
     if(!lat || !long)
     {
-        return alert("Kindly Enter the coordinates");
+        throw new Error("Kindly enter the coordinates.");
     }
 
     const fetchData = async () =>{
@@ -45,11 +45,11 @@ function fetchWeatherByCoordinates(lat:number,long:number):any
         }
         catch(err)
         {
-            throw new Error("Invalid Coordinates")
+            throw new Error((err as Error).message);
         }
 
     }
-    return fetchData();
+    return JSON.stringify(await fetchData());
 }
 
 export {fetchWeatherByCity, fetchWeatherByCoordinates};
