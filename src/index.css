@@ -36,7 +36,13 @@
 
 }
 
-@media(prefers-color-scheme: dark){
+#main {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+/* @media(prefers-color-scheme: dark){
     :root{
 
      --color-bg: #0F1720;          
@@ -59,7 +65,7 @@
     --glass-bg: rgba(23, 34, 48, 0.6);
     --glass-border: rgba(255, 255, 255, 0.08);
   }
-}
+} */
 
 *,*::before,*::after {
 box-sizing: border-box;
@@ -103,7 +109,8 @@ h1{
     font-size: 2.5rem; 
     letter-spacing: -0.025em;
 }
-h2 { font-size: 1.75rem; border-bottom: 2px solid var(--color-border); padding-bottom: var(--space-xs); }
+/* border-bottom: 2px solid var(--color-border); */
+h2 { font-size: 1.75rem;  padding-bottom: var(--space-xs); }
 h3 { font-size: 1.35rem; }
 
 @media (max-width: 640px) {
@@ -191,13 +198,19 @@ main {
   padding-bottom: var(--space-xl);
 }
 
+.site-title {
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  margin: 0;
+}
+
+
 header {
-    padding-top: var(--space-md);
-    padding-bottom: var(--space-md);
-    border-bottom: 1px solid var(--color-border);
     display: flex;
-    flex-direction: column;
-    gap: var(--space-sm); 
+    align-items: center;
+    padding-top: var(--space-md);
+    gap: var(--space-lg); 
 }
 
 header p strong {
@@ -257,6 +270,90 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.screen {
+  min-height: 40vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2rem;
+}
+
+#weatherScreen main {
+  display: flex;
+  gap: 1rem;
+
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+
+  padding: 1.5rem 2rem;
+  border-radius: 24px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+  width: 100%;
+  max-width: 500px;
+}
+
+#weatherScreen input {
+  flex: 1;
+
+  padding: 0.9rem 1.2rem;
+
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+
+  font-size: 1rem;
+
+  background: rgba(255, 255, 255, 0.7);
+  color: #1f2a38;
+
+  outline: none;
+
+  transition: all 0.2s ease;
+}
+
+#weatherScreen input:focus {
+  border-color: var(--color-focus-ring);
+  box-shadow: 0 0 0 3px rgba(122, 167, 255, 0.3);
+}
+
+#weatherScreen button {
+  padding: 0.9rem 1.4rem;
+
+  border-radius: 14px;
+  border: none;
+
+  font-size: 1rem;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  background: var(--color-primary);
+  color: white;
+
+  transition: all 0.2s ease;
+}
+
+#weatherScreen button:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+  transform: translateY(-2px);
+}
+
+#weatherScreen button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+
+.weather-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-xl) 0;
+}
 .weather-card {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(3px) saturate(100%);
@@ -266,8 +363,31 @@ button:focus-visible {
   padding: var(--space-xl);
   max-width: var(--container-width);
   display: grid;
-  grid-template-columns: 1fr 1fr;
   align-items: center;
+  justify-content: center;
+}
+
+.weather-card-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+}
+
+.weather-card-title {
+  grid-column: 1 / -1;
+  width: 100%;
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+.weather-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .temp {
@@ -291,7 +411,11 @@ button:focus-visible {
 }
 
 .weather-right {
-  text-align: right;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .date {
@@ -304,6 +428,22 @@ button:focus-visible {
   font-size: 4rem;
   font-weight: 400;
   margin-top: 1rem;
+}
+
+.weather-details {
+  margin-top: 2rem;
+  font-size: 3rem;
+  font-weight: 400;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+  justify-content: center;
+  align-items: center;
+}
+
+.weather-details h2 {
+  font-size: 2rem;
+  font-weight: 500;
 }
 
 @media (min-width: 768px) {
