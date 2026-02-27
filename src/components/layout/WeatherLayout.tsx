@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { fetchWeatherDataCity } from '../../hooks/useWeather.ts'
+import { fetchWeatherDataCity } from '../../utils/useWeather.ts'
 import '../../index.css'
 import type {CurrentWeather} from '../../types/weatherTypes.ts'
 import SearchBar from '../search/SearchBar.tsx'
